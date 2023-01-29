@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Invoices List</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+		<h3>Invoices List</h3>
+		<hr>
+		<a th:href="@{/invoices/showFormForAdd}"
+			class="btn btn-primary btn-sm mb-3">Add Invoice</a>
+		<table class="table table-bordered table-striped">
+			<thead class="table-dark">
+				<tr>
+					<th>Business Code</th>
+					<th>Customer Number</th>
+					<th>Clear Date</th>
+					<th>Business Year</th>
+					<th>Document Id</th>
+					<th>Posting Date</th>
+					<th>Document Create Date</th>
+					<th>Due In Date</th>
+					<th>Invoice Currency</th>
+					<th>Document Type</th>
+					<th>Postin Id</th>
+					<th>Total Open Amount</th>
+					<th>Baseline Create Date</th>
+					<th>Action</th>
+					<th>Delete</th>
+
+
+				</tr>
+			</thead>
+
+
+			<tbody>
+				<tr th:each="tempInvoice : ${invoices}">
+					<td th:text="${tempInvoice.businessCode}"></td>
+					<td th:text="${tempInvoice.customerNumber}"></td>
+					<td th:text="${tempInvoice.clearDate}"></td>
+					<td th:text="${tempInvoice.businessYear}"></td>
+					<td th:text="${tempInvoice.documentId}"></td>
+					<td th:text="${tempInvoice.postingDate}"></td>
+					<td th:text="${tempInvoice.documentCreateDate}"></td>
+					<td th:text="${tempInvoice.dueInDate}"></td>
+					<td th:text="${tempInvoice.invoiceCurrency}"></td>
+					<td th:text="${tempInvoice.documentType}"></td>
+					<td th:text="${tempInvoice.postinId}"></td>
+					<td th:text="${tempInvoice.totalOpenAmount}"></td>
+					<td th:text="${tempInvoice.baselineCreateDate}"></td>
+					<td><a
+						th:href="@{/invoices/showFormForUpdate(invoiceId=${tempInvoice.slNo})}"
+						class="btn btn-info btn-sm">Update</a></td>
+					<td><a
+						th:href="@{/invoices/delete(invoiceId=${tempInvoice.slNo})}"
+						class="btn btn-danger btn-sm"
+						onclick="if(!(confirm('Are you sure you want to delete this employee ?'))) return false">Delete</a></td>
+
+
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+</body>
+
+</html>

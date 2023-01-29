@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Save Invoice</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous">
+
+</head>
+<body>
+
+	<div class="container">
+	<h3>Invoice Directory</h3>
+	<hr>
+	<p class="h4 mb-4">Save Invoice</p>
+	<form action="#" th:action="@{/invoices/save}"
+		th:object="${invoices}" method="POST">
+		
+		<input type="hidden" th:field="*{slNo}">
+
+		Business Code
+		<input type="text" th:field="*{businessCode}" class="form-control mb-4 col-4"
+			placeholder="Business Code"> 
+		Customer Number
+		<input type="text"
+			th:field="*{customerNumber}" class="form-control mb-4 col-4"
+			placeholder="Customer Number"> 
+		Clear Date
+		<input type="text"
+			th:field="*{clearDate}" class="form-control mb-4 col-4" placeholder="Clear Date">
+		Business year
+		<input type="text"
+			th:field="*{businessYear}" class="form-control mb-4 col-4" placeholder="Business Year">
+		Document Id
+		<input type="text"
+			th:field="*{documentId}" class="form-control mb-4 col-4" placeholder="Document Id">
+		Posting Date 
+		<input type="text"
+			th:field="*{postingDate}" class="form-control mb-4 col-4" placeholder="Posting Date">
+		Document Create Date
+		<input type="text"
+			th:field="*{documentCreateDate}" class="form-control mb-4 col-4" placeholder="Document Create Date">
+		Due In Date
+		<input type="text"
+			th:field="*{dueInDate}" class="form-control mb-4 col-4" placeholder="Due In Date">
+		Invoice Currency
+		<input type="text"
+			th:field="*{invoiceCurrency}" class="form-control mb-4 col-4" placeholder="Invoice Currency">
+		Document Type
+		<input type="text"
+			th:field="*{documentType}" class="form-control mb-4 col-4" placeholder="Document Type">
+		Postin Id
+		<input type="text"
+			th:field="*{postinId}" class="form-control mb-4 col-4" placeholder="Postin Id">
+		Total Open Amount
+		<input type="text"
+			th:field="*{totalOpenAmount}" class="form-control mb-4 col-4" placeholder="Total Open Amount">
+		Baseline Create Date
+		<input type="text"
+			th:field="*{baselineCreateDate}" class="form-control mb-4 col-4" placeholder="Baseline Create Date">
+
+		<button type="submit" class="btn btn-info btn-sm col-2">Submit</button>
+
+
+
+	</form>
+	<hr>
+	<a th:href="@{/invoices/list}">Go Back</a>
+	</div>
+</body>
+</html>
